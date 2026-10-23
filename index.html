@@ -8,7 +8,8 @@
   <meta name="description" content="علب نظارات صلبة بـ 7 ألوان. 50 دج للقطعة، الحد الأدنى للطلب 16 قطعة (800 دج). توصيل لكل الولايات والدفع عند الاستلام.">
   <meta property="og:title" content="علب النظارات بالجملة | 50 دج للقطعة">
   <meta property="og:description" content="7 ألوان، الحد الأدنى 16 قطعة بـ 800 دج، الدفع عند الاستلام.">
-  <meta property="og:image" content="images/colors.webp">
+  <meta property="og:image" content="https://tlvlt.github.io/glasses-cases/images/colors.webp">
+  <meta property="og:url" content="https://tlvlt.github.io/glasses-cases/">
   <meta property="og:type" content="product">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,7 +206,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand" id="brand">LUNETTE BOX</div>
+    <div class="brand" id="brand">علب النظارات</div>
     <a class="mini" href="#order" data-track="header">اطلب الآن</a>
   </div>
 </header>
@@ -366,7 +367,7 @@
 </main>
 
 <footer>
-  <div>© LUNETTE BOX — جميع الحقوق محفوظة</div>
+  
   <details class="small">
     <summary>سياسة الخصوصية</summary>
     <p>نجمع فقط المعلومات التي تكتبها في استمارة الطلب: الاسم، رقم الهاتف، الولاية، البلدية والعنوان، وذلك من أجل تأكيد طلبك وتوصيله.</p>
@@ -440,7 +441,7 @@ if (CONFIG.META_PIXEL_ID) {
 function track(metaEvent, data) {
   try { if (window.fbq) fbq("track", metaEvent, data || {}); } catch (_) {}
 }
-track("ViewContent", { content_name: "Lunette Box", value: MIN_TOTAL, currency: "DZD" });
+track("ViewContent", { content_name: "Glasses case", value: MIN_TOTAL, currency: "DZD" });
 document.querySelectorAll("[data-track]").forEach(a =>
   a.addEventListener("click", () => track("InitiateCheckout")));
 
@@ -663,7 +664,7 @@ updateAll();
 /* ---------- submit ---------- */
 const statusEl = $("#status");
 const submitBtn = $("#submit");
-const LAST_KEY = "lunette_last_order";
+const LAST_KEY = "last_order";
 
 function showSuccess(orderId) {
   const card = $("#order-card");

@@ -1,4 +1,4 @@
-# Lunette Box: order page
+# Glasses cases: order page
 
 Wholesale glasses cases: 50 DA per piece, minimum 16 pieces, colours shuffled, cash on delivery.
 

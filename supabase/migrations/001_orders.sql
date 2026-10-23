@@ -1,4 +1,4 @@
--- Orders, admin allow-list and row-level security for the Lunette Box order page.
+-- Orders, admin allow-list and row-level security for the glasses-case order page.
 -- Customers never write to the table directly: the create-order edge function
 -- (service role) inserts orders. Only signed-in admins can read and edit them.
 

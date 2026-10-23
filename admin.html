@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#1b2a41">
-  <title>Lunette Box | Admin</title>
+  <title>Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
@@ -110,7 +110,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand"><span>LUNETTE BOX · <span data-t="admin"></span></span></div>
+    <div class="brand"><span data-t="admin"></span></div>
     <div class="hbtns">
       <div class="langs" role="group" aria-label="Language">
         <button type="button" data-lang="ar">AR</button>
@@ -189,7 +189,7 @@ const STATUS_KEYS = ["new", "no_answer", "confirmed", "shipped", "delivered", "r
    ================================================================= */
 const T = {
   ar: {
-    dir: "rtl", admin: "الإدارة", login: "تسجيل الدخول", loginSub: "هذه الصفحة خاصة بإدارة Lunette Box.",
+    dir: "rtl", admin: "الإدارة", login: "تسجيل الدخول", loginSub: "هذه الصفحة خاصة بالإدارة.",
     email: "البريد الإلكتروني", password: "كلمة السر", enter: "دخول",
     badLogin: "البريد أو كلمة السر غير صحيحة.", noAccess: "هذا الحساب ليس له صلاحية الدخول.",
     refresh: "تحديث", logout: "خروج", updated: "تم التحديث", loadFail: "تعذر تحميل الطلبات: ",
@@ -203,16 +203,16 @@ const T = {
     c_delivery: "التوصيل", c_qty: "الكمية", c_total: "المبلغ", c_status: "الحالة", c_tracking: "التتبع",
     home: "منزل", desk: "مكتب", homeLong: "إلى المنزل", deskLong: "مكتب التوصيل (Stop desk)",
     empty: "لا توجد طلبات هنا.", back: "→ رجوع إلى الطلبات", notFound: "هذا الطلب غير موجود.",
-    call: "📞 اتصال", whatsapp: "💬 واتساب", copyZR: "📋 نسخ لـ ZR", copied: "تم النسخ", copyFail: "تعذر النسخ",
+    call: "📞 اتصال", whatsapp: "💬 واتساب",
     f_phone: "الهاتف", f_wilaya: "الولاية", f_commune: "البلدية", f_delivery: "التوصيل", f_address: "العنوان",
     f_order: "الطلب", f_created: "تاريخ الطلب", f_updated: "آخر تعديل",
-    status: "الحالة", tracking: "رقم التتبع", trackingPh: "رقم التتبع ZR", notes: "ملاحظات",
+    status: "الحالة", tracking: "رقم التتبع", trackingPh: "رقم التتبع", notes: "ملاحظات",
     notesPh: "مثلاً: اتصلت مرتين، لم يرد", saving: "جاري الحفظ…", saved: "تم الحفظ ✓", saveFail: "لم يتم الحفظ: ",
     lamp: "علبة نظارات", plusDelivery: "+ التوصيل", cur: "دج",
     s: { new: "جديد", no_answer: "لم يرد", confirmed: "مؤكد", shipped: "تم الشحن", delivered: "تم التسليم", returned: "مرتجع", cancelled: "ملغى" }
   },
   fr: {
-    dir: "ltr", admin: "Admin", login: "Connexion", loginSub: "Page réservée à l'administration de Lunette Box.",
+    dir: "ltr", admin: "Admin", login: "Connexion", loginSub: "Page réservée à l'administration.",
     email: "E-mail", password: "Mot de passe", enter: "Se connecter",
     badLogin: "E-mail ou mot de passe incorrect.", noAccess: "Ce compte n'a pas accès.",
     refresh: "Actualiser", logout: "Déconnexion", updated: "Actualisé", loadFail: "Impossible de charger les commandes : ",
@@ -226,16 +226,16 @@ const T = {
     c_delivery: "Livraison", c_qty: "Qté", c_total: "Montant", c_status: "Statut", c_tracking: "Suivi",
     home: "Domicile", desk: "Stop desk", homeLong: "À domicile", deskLong: "Stop desk (bureau de livraison)",
     empty: "Aucune commande ici.", back: "← Retour aux commandes", notFound: "Commande introuvable.",
-    call: "📞 Appeler", whatsapp: "💬 WhatsApp", copyZR: "📋 Copier pour ZR", copied: "Copié", copyFail: "Copie impossible",
+    call: "📞 Appeler", whatsapp: "💬 WhatsApp",
     f_phone: "Téléphone", f_wilaya: "Wilaya", f_commune: "Commune", f_delivery: "Livraison", f_address: "Adresse",
     f_order: "Commande", f_created: "Date de commande", f_updated: "Dernière modification",
-    status: "Statut", tracking: "N° de suivi", trackingPh: "N° de suivi ZR", notes: "Notes",
+    status: "Statut", tracking: "N° de suivi", trackingPh: "N° de suivi", notes: "Notes",
     notesPh: "Ex. : appelé deux fois, pas de réponse", saving: "Enregistrement…", saved: "Enregistré ✓", saveFail: "Non enregistré : ",
     lamp: "Étui à lunettes", plusDelivery: "+ livraison", cur: "DA",
     s: { new: "Nouvelle", no_answer: "Pas de réponse", confirmed: "Confirmée", shipped: "Expédiée", delivered: "Livrée", returned: "Retour", cancelled: "Annulée" }
   },
   en: {
-    dir: "ltr", admin: "Admin", login: "Sign in", loginSub: "This page is for Lunette Box administration only.",
+    dir: "ltr", admin: "Admin", login: "Sign in", loginSub: "This page is for administration only.",
     email: "Email", password: "Password", enter: "Sign in",
     badLogin: "Wrong email or password.", noAccess: "This account has no access.",
     refresh: "Refresh", logout: "Log out", updated: "Updated", loadFail: "Could not load orders: ",
@@ -249,16 +249,16 @@ const T = {
     c_delivery: "Delivery", c_qty: "Qty", c_total: "Total", c_status: "Status", c_tracking: "Tracking",
     home: "Home", desk: "Stop desk", homeLong: "Home delivery", deskLong: "Stop desk (delivery office)",
     empty: "No orders here.", back: "← Back to orders", notFound: "Order not found.",
-    call: "📞 Call", whatsapp: "💬 WhatsApp", copyZR: "📋 Copy for ZR", copied: "Copied", copyFail: "Could not copy",
+    call: "📞 Call", whatsapp: "💬 WhatsApp",
     f_phone: "Phone", f_wilaya: "Wilaya", f_commune: "Commune", f_delivery: "Delivery", f_address: "Address",
     f_order: "Order", f_created: "Ordered on", f_updated: "Last change",
-    status: "Status", tracking: "Tracking number", trackingPh: "ZR tracking number", notes: "Notes",
+    status: "Status", tracking: "Tracking number", trackingPh: "Tracking number", notes: "Notes",
     notesPh: "e.g. called twice, no answer", saving: "Saving…", saved: "Saved ✓", saveFail: "Not saved: ",
     lamp: "Glasses case", plusDelivery: "+ delivery", cur: "DA",
     s: { new: "New", no_answer: "No answer", confirmed: "Confirmed", shipped: "Shipped", delivered: "Delivered", returned: "Returned", cancelled: "Cancelled" }
   }
 };
-const LANG_KEY = "lunette_admin_lang";
+const LANG_KEY = "admin_lang";
 let lang = "ar";
 try { lang = localStorage.getItem(LANG_KEY) || "ar"; } catch (_) {}
 if (!T[lang]) lang = "ar";
@@ -472,12 +472,6 @@ function renderDetail(id) {
   if (!o) { box.append(el("div", { class: "panel" }, el("p", { text: t().notFound }))); return; }
 
   const intl = "213" + String(o.phone).replace(/^0/, "");
-  const zrText = [
-    `Nom: ${o.customer_name}`, `Tél: ${o.phone}`, `Wilaya: ${o.wilaya}`, `Commune: ${o.commune}`,
-    o.delivery_type === "desk" ? "Livraison: Stop desk" : `Livraison: Domicile — ${o.address}`,
-    `Produit: Étui à lunettes (couleurs assorties) x${o.quantity}`, `Montant: ${totalOf(o)} DA + livraison`
-  ].join("\n");
-
   const statusBadge = badge(o.status);
   const info = el("dl", { class: "info" });
   const row = (label, ...value) => info.append(el("dt", { text: label }), el("dd", { dir: "auto" }, ...value));
@@ -522,10 +516,7 @@ function renderDetail(id) {
       info,
       el("div", { class: "actions" },
         el("a", { href: `tel:${o.phone}`, text: t().call }),
-        el("a", { href: `https://wa.me/${intl}`, target: "_blank", rel: "noopener", text: t().whatsapp }),
-        el("button", { type: "button", text: t().copyZR, onclick: async () => {
-          try { await navigator.clipboard.writeText(zrText); toast(t().copied); } catch { toast(t().copyFail); }
-        } }))),
+        el("a", { href: `https://wa.me/${intl}`, target: "_blank", rel: "noopener", text: t().whatsapp }))),
     el("div", { class: "panel" },
       el("div", { class: "edit" },
         el("div", {}, el("label", { for: "d-status", text: t().status }), statusSel),
