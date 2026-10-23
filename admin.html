@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1b2a41">
+  <title>Lunette Box | Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1b2a41; --navy-2: #324a5f; --cyan: #ff6b6b; --yellow: #ffd21f;
+      --red: #d92d20; --green: #16803c; --bg: #f6f4f1; --ink: #1c1b22; --muted: #646a78; --line: #e3dfd8;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; font-family: "Cairo", Tahoma, Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 14px; }
+    bdi.n { direction: ltr; unicode-bidi: isolate; }
+
+    /* ---------- header ---------- */
+    header { position: sticky; top: 0; z-index: 10; background: var(--navy); color: #fff; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 56px; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+        .hbtns { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .langs { display: flex; border: 1px solid #ffffff55; border-radius: 9px; overflow: hidden; }
+    .langs button { background: transparent; color: #fff; border: 0; padding: 4px 10px; cursor: pointer; font-weight: 700; font-size: 13px; }
+    .langs button[aria-pressed="true"] { background: var(--cyan); color: var(--navy); }
+    .btn { border: 0; border-radius: 9px; padding: 6px 14px; cursor: pointer; font-weight: 700; background: var(--yellow); color: var(--navy); }
+    .btn.ghost { background: transparent; color: #fff; border: 1px solid #ffffff55; }
+    .btn:disabled { opacity: .6; cursor: wait; }
+
+    /* ---------- login ---------- */
+    .login { max-width: 380px; margin: 60px auto; background: #fff; border-radius: 16px; padding: 26px 20px; border: 1px solid var(--line); }
+    .login h1 { margin: 0 0 4px; font-size: 22px; }
+    .login p { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+    label { display: block; font-weight: 600; font-size: 14px; margin: 12px 0 4px; }
+    input, select, textarea { width: 100%; padding: 9px 10px; border: 1.5px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); }
+    input:focus, select:focus, textarea:focus { outline: 3px solid #ff6b6b55; border-color: var(--cyan); }
+    .login .btn { width: 100%; margin-top: 18px; padding: 11px; font-size: 17px; }
+    .msg { margin: 10px 0 0; font-weight: 600; font-size: 14px; color: var(--red); }
+
+    /* ---------- toolbar + stats ---------- */
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 10px; }
+    .toolbar select { width: auto; flex: 0 1 180px; }
+    .toolbar input { flex: 1 1 220px; width: auto; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    @media (min-width: 720px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+    .stat { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+    .stat b { display: block; font-size: 22px; color: var(--navy); line-height: 1.2; }
+    .stat small { color: var(--muted); font-size: 13px; }
+    .stat .sub { color: var(--muted); font-size: 12px; }
+    .tabs { display: flex; gap: 6px; overflow-x: auto; padding: 12px 0 8px; }
+    .tab { white-space: nowrap; border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 3px 12px; cursor: pointer; font-weight: 600; font-size: 14px; color: var(--ink); }
+    .tab[aria-pressed="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .tab .c { opacity: .7; margin-inline-start: 4px; }
+
+    /* ---------- orders table ---------- */
+    .table-box { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; margin-bottom: 40px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th { text-align: start; font-size: 12px; color: var(--muted); font-weight: 700; padding: 9px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; background: #fafbfe; }
+    td { padding: 9px 10px; border-bottom: 1px solid #eef0f6; white-space: nowrap; vertical-align: middle; }
+    tbody tr { cursor: pointer; }
+    tbody tr:hover, tbody tr:focus { background: #f1f7ff; outline: none; }
+    tbody tr:last-child td { border-bottom: 0; }
+    td.name { font-weight: 700; max-width: 180px; overflow: hidden; text-overflow: ellipsis; }
+    td.place { max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+    td.muted { color: var(--muted); font-size: 12px; }
+    .empty { text-align: center; color: var(--muted); padding: 36px 0; }
+    /* less important columns disappear on phones */
+    @media (max-width: 760px) { .opt { display: none; } th, td { padding: 9px 7px; } td.place { max-width: 120px; } td.name { max-width: 110px; } }
+
+    .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 10px; border-radius: 999px; white-space: nowrap; }
+    .s-new { background: #cffafe; color: #155e75; }
+    .s-no_answer { background: #fef3c7; color: #92400e; }
+    .s-confirmed { background: #dbeafe; color: #1e40af; }
+    .s-shipped { background: #ede9fe; color: #5b21b6; }
+    .s-delivered { background: #dcfce7; color: #166534; }
+    .s-returned, .s-cancelled { background: #fee2e2; color: #991b1b; }
+    .pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 0 8px; border-radius: 999px; }
+    .pill.home { background: #e0f2fe; } .pill.desk { background: #fef3c7; }
+
+    /* ---------- order detail page ---------- */
+    .detail { max-width: 760px; margin: 16px auto 40px; }
+    .back { background: none; border: 0; color: var(--navy); font-weight: 800; cursor: pointer; padding: 4px 0; font-size: 15px; }
+    .panel { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-top: 10px; }
+    .panel h2 { margin: 0; font-size: 22px; }
+    .head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .info { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 14px 0 4px; font-size: 15px; }
+    .info dt { color: var(--muted); }
+    .info dd { margin: 0; font-weight: 600; word-break: break-word; }
+    /* values keep their own reading order (dir=auto) but line up with the page */
+    html[dir="ltr"] .info dd { text-align: left; }
+    html[dir="rtl"] .info dd { text-align: right; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .actions a, .actions button { text-decoration: none; border: 1.5px solid var(--line); background: #fff; color: var(--ink); border-radius: 10px; padding: 7px 14px; font-weight: 700; cursor: pointer; }
+    .actions a:hover, .actions button:hover { border-color: var(--cyan); }
+    .edit { display: grid; gap: 4px 12px; grid-template-columns: 1fr 1fr; }
+    .edit .full { grid-column: 1 / -1; }
+    .edit textarea { min-height: 80px; resize: vertical; }
+    .saved { font-size: 13px; color: var(--green); font-weight: 600; min-height: 20px; margin-top: 8px; }
+    .saved.err { color: var(--red); }
+    .toast { position: fixed; bottom: 16px; inset-inline: 16px; margin: auto; max-width: 360px; background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 10px; text-align: center; font-weight: 600; z-index: 50; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><span>LUNETTE BOX · <span data-t="admin"></span></span></div>
+    <div class="hbtns">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="ar">AR</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button class="btn" id="refresh" type="button" data-t="refresh" hidden></button>
+      <button class="btn ghost" id="logout" type="button" data-t="logout" hidden></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LOGIN ============ -->
+<section class="login" id="login-view" hidden>
+  <h1 data-t="login"></h1>
+  <p data-t="loginSub"></p>
+  <form id="login-form">
+    <label for="email" data-t="email"></label>
+    <input id="email" type="email" autocomplete="username" required dir="ltr">
+    <label for="password" data-t="password"></label>
+    <input id="password" type="password" autocomplete="current-password" required dir="ltr">
+    <button class="btn" type="submit" id="login-btn" data-t="enter"></button>
+    <p class="msg" id="login-msg" role="alert"></p>
+  </form>
+</section>
+
+<!-- ============ ORDERS LIST ============ -->
+<main class="wrap" id="list-view" hidden>
+  <div class="toolbar">
+    <select id="period" aria-label="period">
+      <option value="1" data-t="today"></option>
+      <option value="7" data-t="d7" selected></option>
+      <option value="30" data-t="d30"></option>
+      <option value="0" data-t="all"></option>
+    </select>
+    <input id="search" type="search" data-tp="search">
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="tabs" id="tabs" role="toolbar"></div>
+  <div class="table-box">
+    <table>
+      <thead><tr>
+        <th class="opt">#</th>
+        <th class="opt" data-t="c_date"></th>
+        <th data-t="c_name"></th>
+        <th data-t="c_phone"></th>
+        <th data-t="c_place"></th>
+        <th class="opt" data-t="c_delivery"></th>
+        <th class="opt" data-t="c_qty"></th>
+        <th class="opt" data-t="c_total"></th>
+        <th data-t="c_status"></th>
+        <th class="opt" data-t="c_tracking"></th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty" data-t="empty" hidden></p>
+  </div>
+</main>
+
+<!-- ============ ONE ORDER ============ -->
+<main class="wrap" id="detail-view" hidden>
+  <div class="detail" id="detail"></div>
+</main>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+<script>
+const SUPABASE_URL = "https://zqlaymmgxgxagooqacab.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_PI1JiJOmCsSqNSSVtv1LWw_JE2sHUGK";
+const UNIT_PRICE = 50;   // fallback only: every order is saved with its own total_price
+const STATUS_KEYS = ["new", "no_answer", "confirmed", "shipped", "delivered", "returned", "cancelled"];
+
+/* =================================================================
+   TRANSLATIONS
+   ================================================================= */
+const T = {
+  ar: {
+    dir: "rtl", admin: "الإدارة", login: "تسجيل الدخول", loginSub: "هذه الصفحة خاصة بإدارة Lunette Box.",
+    email: "البريد الإلكتروني", password: "كلمة السر", enter: "دخول",
+    badLogin: "البريد أو كلمة السر غير صحيحة.", noAccess: "هذا الحساب ليس له صلاحية الدخول.",
+    refresh: "تحديث", logout: "خروج", updated: "تم التحديث", loadFail: "تعذر تحميل الطلبات: ",
+    today: "اليوم", d7: "آخر 7 أيام", d30: "آخر 30 يوم", all: "الكل", allTab: "الكل",
+    search: "بحث: اسم، هاتف، بلدية، رقم الطلب…",
+    st_orders: "عدد الطلبات", st_waiting: n => `${n} في انتظار الاتصال`,
+    st_conf: "نسبة التأكيد", st_confSub: (a, b) => `${a} مؤكد من ${b}`,
+    st_del: "نسبة التسليم", st_delSub: (a, b) => `${a} سُلّم، ${b} مرتجع`,
+    st_rev: "المداخيل (المُسلّمة فقط)", st_pieces: n => `${n} قطعة`,
+    c_date: "التاريخ", c_name: "الاسم", c_phone: "الهاتف", c_place: "الولاية / البلدية",
+    c_delivery: "التوصيل", c_qty: "الكمية", c_total: "المبلغ", c_status: "الحالة", c_tracking: "التتبع",
+    home: "منزل", desk: "مكتب", homeLong: "إلى المنزل", deskLong: "مكتب التوصيل (Stop desk)",
+    empty: "لا توجد طلبات هنا.", back: "→ رجوع إلى الطلبات", notFound: "هذا الطلب غير موجود.",
+    call: "📞 اتصال", whatsapp: "💬 واتساب", copyZR: "📋 نسخ لـ ZR", copied: "تم النسخ", copyFail: "تعذر النسخ",
+    f_phone: "الهاتف", f_wilaya: "الولاية", f_commune: "البلدية", f_delivery: "التوصيل", f_address: "العنوان",
+    f_order: "الطلب", f_created: "تاريخ الطلب", f_updated: "آخر تعديل",
+    status: "الحالة", tracking: "رقم التتبع", trackingPh: "رقم التتبع ZR", notes: "ملاحظات",
+    notesPh: "مثلاً: اتصلت مرتين، لم يرد", saving: "جاري الحفظ…", saved: "تم الحفظ ✓", saveFail: "لم يتم الحفظ: ",
+    lamp: "علبة نظارات", plusDelivery: "+ التوصيل", cur: "دج",
+    s: { new: "جديد", no_answer: "لم يرد", confirmed: "مؤكد", shipped: "تم الشحن", delivered: "تم التسليم", returned: "مرتجع", cancelled: "ملغى" }
+  },
+  fr: {
+    dir: "ltr", admin: "Admin", login: "Connexion", loginSub: "Page réservée à l'administration de Lunette Box.",
+    email: "E-mail", password: "Mot de passe", enter: "Se connecter",
+    badLogin: "E-mail ou mot de passe incorrect.", noAccess: "Ce compte n'a pas accès.",
+    refresh: "Actualiser", logout: "Déconnexion", updated: "Actualisé", loadFail: "Impossible de charger les commandes : ",
+    today: "Aujourd'hui", d7: "7 derniers jours", d30: "30 derniers jours", all: "Tout", allTab: "Toutes",
+    search: "Rechercher : nom, téléphone, commune, n° de commande…",
+    st_orders: "Commandes", st_waiting: n => `${n} à appeler`,
+    st_conf: "Taux de confirmation", st_confSub: (a, b) => `${a} confirmées sur ${b}`,
+    st_del: "Taux de livraison", st_delSub: (a, b) => `${a} livrées, ${b} retours`,
+    st_rev: "Chiffre d'affaires (livrées)", st_pieces: n => `${n} pièce(s)`,
+    c_date: "Date", c_name: "Nom", c_phone: "Téléphone", c_place: "Wilaya / Commune",
+    c_delivery: "Livraison", c_qty: "Qté", c_total: "Montant", c_status: "Statut", c_tracking: "Suivi",
+    home: "Domicile", desk: "Stop desk", homeLong: "À domicile", deskLong: "Stop desk (bureau de livraison)",
+    empty: "Aucune commande ici.", back: "← Retour aux commandes", notFound: "Commande introuvable.",
+    call: "📞 Appeler", whatsapp: "💬 WhatsApp", copyZR: "📋 Copier pour ZR", copied: "Copié", copyFail: "Copie impossible",
+    f_phone: "Téléphone", f_wilaya: "Wilaya", f_commune: "Commune", f_delivery: "Livraison", f_address: "Adresse",
+    f_order: "Commande", f_created: "Date de commande", f_updated: "Dernière modification",
+    status: "Statut", tracking: "N° de suivi", trackingPh: "N° de suivi ZR", notes: "Notes",
+    notesPh: "Ex. : appelé deux fois, pas de réponse", saving: "Enregistrement…", saved: "Enregistré ✓", saveFail: "Non enregistré : ",
+    lamp: "Étui à lunettes", plusDelivery: "+ livraison", cur: "DA",
+    s: { new: "Nouvelle", no_answer: "Pas de réponse", confirmed: "Confirmée", shipped: "Expédiée", delivered: "Livrée", returned: "Retour", cancelled: "Annulée" }
+  },
+  en: {
+    dir: "ltr", admin: "Admin", login: "Sign in", loginSub: "This page is for Lunette Box administration only.",
+    email: "Email", password: "Password", enter: "Sign in",
+    badLogin: "Wrong email or password.", noAccess: "This account has no access.",
+    refresh: "Refresh", logout: "Log out", updated: "Updated", loadFail: "Could not load orders: ",
+    today: "Today", d7: "Last 7 days", d30: "Last 30 days", all: "All time", allTab: "All",
+    search: "Search: name, phone, commune, order #…",
+    st_orders: "Orders", st_waiting: n => `${n} waiting for a call`,
+    st_conf: "Confirmation rate", st_confSub: (a, b) => `${a} confirmed of ${b}`,
+    st_del: "Delivery rate", st_delSub: (a, b) => `${a} delivered, ${b} returned`,
+    st_rev: "Revenue (delivered only)", st_pieces: n => `${n} piece(s)`,
+    c_date: "Date", c_name: "Name", c_phone: "Phone", c_place: "Wilaya / Commune",
+    c_delivery: "Delivery", c_qty: "Qty", c_total: "Total", c_status: "Status", c_tracking: "Tracking",
+    home: "Home", desk: "Stop desk", homeLong: "Home delivery", deskLong: "Stop desk (delivery office)",
+    empty: "No orders here.", back: "← Back to orders", notFound: "Order not found.",
+    call: "📞 Call", whatsapp: "💬 WhatsApp", copyZR: "📋 Copy for ZR", copied: "Copied", copyFail: "Could not copy",
+    f_phone: "Phone", f_wilaya: "Wilaya", f_commune: "Commune", f_delivery: "Delivery", f_address: "Address",
+    f_order: "Order", f_created: "Ordered on", f_updated: "Last change",
+    status: "Status", tracking: "Tracking number", trackingPh: "ZR tracking number", notes: "Notes",
+    notesPh: "e.g. called twice, no answer", saving: "Saving…", saved: "Saved ✓", saveFail: "Not saved: ",
+    lamp: "Glasses case", plusDelivery: "+ delivery", cur: "DA",
+    s: { new: "New", no_answer: "No answer", confirmed: "Confirmed", shipped: "Shipped", delivered: "Delivered", returned: "Returned", cancelled: "Cancelled" }
+  }
+};
+const LANG_KEY = "lunette_admin_lang";
+let lang = "ar";
+try { lang = localStorage.getItem(LANG_KEY) || "ar"; } catch (_) {}
+if (!T[lang]) lang = "ar";
+const t = () => T[lang];
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = t().dir;
+  document.querySelectorAll("[data-t]").forEach(e => { e.textContent = t()[e.dataset.t]; });
+  document.querySelectorAll("[data-tp]").forEach(e => { e.placeholder = t()[e.dataset.tp]; });
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+}
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang;
+  try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
+  applyLang();
+  $("#login-msg").textContent = "";
+  route();
+}));
+
+/* =================================================================
+   HELPERS
+   ================================================================= */
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const $ = s => document.querySelector(s);
+const fmt = n => Number(n || 0).toLocaleString("fr-FR").replace(/[   ]/g, " ");
+const totalOf = o => o.total_price ?? o.quantity * UNIT_PRICE;
+let orders = [];
+let currentTab = "all";
+let signedIn = false;
+let openedFromList = false;   // so "Back" returns to the list the way your phone's back button does
+
+function el(tag, attrs = {}, ...children) {   // customer data always goes in as text, never as HTML
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (v == null) continue;
+    if (k === "class") e.className = v;
+    else if (k === "text") e.textContent = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v);
+  }
+  for (const c of children) if (c != null) e.append(c);
+  return e;
+}
+const num = v => el("bdi", { class: "n", text: String(v) });
+function money(n) { const f = document.createDocumentFragment(); f.append(num(fmt(n)), " " + t().cur); return f; }
+const badge = s => el("span", { class: `badge s-${s}`, text: t().s[s] || s });
+function when(iso) {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  return d.toLocaleDateString("fr-FR") + " " + d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", hour12: false });
+}
+function toast(text) {
+  const x = $("#toast"); x.textContent = text; x.hidden = false;
+  clearTimeout(toast.h); toast.h = setTimeout(() => x.hidden = true, 2500);
+}
+
+/* =================================================================
+   AUTH + ROUTING  (#o=12 opens order 12, empty hash = list)
+   ================================================================= */
+function showView(v) {
+  $("#login-view").hidden = v !== "login";
+  $("#list-view").hidden = v !== "list";
+  $("#detail-view").hidden = v !== "detail";
+  $("#refresh").hidden = $("#logout").hidden = v === "login";
+}
+function route() {
+  if (!signedIn) return showView("login");
+  const m = /^#o=(\d+)$/.exec(location.hash);
+  if (m) { showView("detail"); renderDetail(Number(m[1])); window.scrollTo(0, 0); }
+  else { showView("list"); renderList(); }
+}
+window.addEventListener("hashchange", route);
+
+async function start() {
+  const { data } = await db.auth.getSession();
+  if (!data.session) { signedIn = false; return route(); }
+  const { data: ok, error } = await db.rpc("is_admin");
+  if (error || !ok) {
+    await db.auth.signOut();
+    signedIn = false;
+    $("#login-msg").textContent = t().noAccess;
+    return route();
+  }
+  signedIn = true;
+  await load();
+}
+
+$("#login-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const btn = $("#login-btn");
+  btn.disabled = true; $("#login-msg").textContent = "";
+  const { error } = await db.auth.signInWithPassword({ email: $("#email").value.trim(), password: $("#password").value });
+  btn.disabled = false;
+  if (error) { $("#login-msg").textContent = t().badLogin; return; }
+  $("#password").value = "";
+  start();
+});
+$("#logout").addEventListener("click", async () => {
+  await db.auth.signOut(); signedIn = false; orders = [];
+  history.replaceState(null, "", location.pathname); route();
+});
+$("#refresh").addEventListener("click", () => load(true));
+$("#period").addEventListener("change", renderList);
+$("#search").addEventListener("input", renderList);
+
+/* =================================================================
+   DATA
+   ================================================================= */
+async function load(manual = false) {
+  const { data, error } = await db.from("orders").select("*").order("created_at", { ascending: false }).range(0, 4999);
+  if (error) { toast(t().loadFail + error.message); return; }
+  orders = data || [];
+  route();
+  if (manual) toast(t().updated);
+}
+// refresh the list every minute, but never while you are editing an order
+setInterval(() => { if (signedIn && !$("#list-view").hidden) load(); }, 60_000);
+
+async function save(order, changes, savedEl) {
+  savedEl.className = "saved"; savedEl.textContent = t().saving;
+  const { data, error } = await db.from("orders").update(changes).eq("id", order.id).select().single();
+  if (error) { savedEl.className = "saved err"; savedEl.textContent = t().saveFail + error.message; return false; }
+  Object.assign(order, data);
+  savedEl.textContent = t().saved;
+  return true;
+}
+
+/* =================================================================
+   LIST VIEW
+   ================================================================= */
+function inPeriod(o) {
+  const days = Number($("#period").value);
+  if (!days) return true;
+  const start = new Date(); start.setHours(0, 0, 0, 0); start.setDate(start.getDate() - (days - 1));
+  return new Date(o.created_at) >= start;
+}
+function matches(o) {
+  const q = $("#search").value.trim().toLowerCase();
+  if (!q) return true;
+  return [o.id, o.customer_name, o.phone, o.wilaya, o.commune, o.address, o.tracking_number, o.notes]
+    .some(v => String(v ?? "").toLowerCase().includes(q));
+}
+
+function renderList() {
+  const period = orders.filter(inPeriod);
+  renderStats(period);
+  renderTabs(period);
+  const shown = period.filter(o => (currentTab === "all" || o.status === currentTab) && matches(o));
+  const tbody = $("#rows");
+  tbody.textContent = "";
+  $("#empty").hidden = shown.length > 0;
+  shown.forEach(o => {
+    const open = () => { openedFromList = true; location.hash = "o=" + o.id; };
+    tbody.append(el("tr", { tabindex: "0", onclick: open, onkeydown: e => { if (e.key === "Enter") open(); } },
+      el("td", { class: "opt muted" }, num(o.id)),
+      el("td", { class: "opt muted" }, num(when(o.created_at))),
+      el("td", { class: "name", text: o.customer_name, title: o.customer_name }),
+      el("td", {}, num(o.phone)),
+      el("td", { class: "place", title: `${o.wilaya} · ${o.commune}` }, `${o.wilaya.replace(/^\d+ - /, "")} · ${o.commune}`),
+      el("td", { class: "opt" }, el("span", { class: `pill ${o.delivery_type === "desk" ? "desk" : "home"}`, text: o.delivery_type === "desk" ? t().desk : t().home })),
+      el("td", { class: "opt" }, num(o.quantity)),
+      el("td", { class: "opt" }, money(totalOf(o))),
+      el("td", {}, badge(o.status)),
+      el("td", { class: "opt muted" }, num(o.tracking_number || "—"))
+    ));
+  });
+}
+
+function renderStats(p) {
+  const count = s => p.filter(o => o.status === s).length;
+  const decided = p.filter(o => !["new", "no_answer"].includes(o.status)).length;
+  const conf = ["confirmed", "shipped", "delivered", "returned"].reduce((a, s) => a + count(s), 0);
+  const finished = count("delivered") + count("returned");
+  const delivered = p.filter(o => o.status === "delivered");
+  const pct = (a, b) => b ? Math.round(a * 100 / b) + "%" : "—";
+  const stat = (value, label, sub) => el("div", { class: "stat" }, el("b", {}, value), el("small", { text: label }), el("div", { class: "sub", text: sub }));
+  const box = $("#stats");
+  box.textContent = "";
+  box.append(
+    stat(num(p.length), t().st_orders, t().st_waiting(count("new") + count("no_answer"))),
+    stat(num(pct(conf, decided)), t().st_conf, t().st_confSub(conf, decided)),
+    stat(num(pct(count("delivered"), finished)), t().st_del, t().st_delSub(count("delivered"), count("returned"))),
+    stat(money(delivered.reduce((a, o) => a + totalOf(o), 0)), t().st_rev, t().st_pieces(delivered.reduce((a, o) => a + o.quantity, 0)))
+  );
+}
+
+function renderTabs(p) {
+  const tabs = $("#tabs");
+  tabs.textContent = "";
+  ["all", ...STATUS_KEYS].forEach(key => {
+    const n = key === "all" ? p.length : p.filter(o => o.status === key).length;
+    tabs.append(el("button", {
+      class: "tab", type: "button", "aria-pressed": String(currentTab === key),
+      onclick: () => { currentTab = key; renderList(); }
+    }, key === "all" ? t().allTab : t().s[key], el("span", { class: "c", text: `(${n})` })));
+  });
+}
+
+/* =================================================================
+   DETAIL VIEW (one client / order)
+   ================================================================= */
+function renderDetail(id) {
+  const box = $("#detail");
+  box.textContent = "";
+  box.append(el("button", { class: "back", type: "button", text: t().back, onclick: () => {
+    if (openedFromList) { openedFromList = false; history.back(); }
+    else { history.replaceState(null, "", location.pathname); route(); }   // opened from a bookmark/link
+  } }));
+  const o = orders.find(x => x.id === id);
+  if (!o) { box.append(el("div", { class: "panel" }, el("p", { text: t().notFound }))); return; }
+
+  const intl = "213" + String(o.phone).replace(/^0/, "");
+  const zrText = [
+    `Nom: ${o.customer_name}`, `Tél: ${o.phone}`, `Wilaya: ${o.wilaya}`, `Commune: ${o.commune}`,
+    o.delivery_type === "desk" ? "Livraison: Stop desk" : `Livraison: Domicile — ${o.address}`,
+    `Produit: Étui à lunettes (couleurs assorties) x${o.quantity}`, `Montant: ${totalOf(o)} DA + livraison`
+  ].join("\n");
+
+  const statusBadge = badge(o.status);
+  const info = el("dl", { class: "info" });
+  const row = (label, ...value) => info.append(el("dt", { text: label }), el("dd", { dir: "auto" }, ...value));
+  row(t().f_phone, num(o.phone));
+  row(t().f_wilaya, o.wilaya);
+  row(t().f_commune, o.commune);
+  row(t().f_delivery, o.delivery_type === "desk" ? t().deskLong : t().homeLong);
+  if (o.delivery_type !== "desk") row(t().f_address, o.address);
+  const orderLine = document.createDocumentFragment();
+  orderLine.append(`${o.quantity} × ${t().lamp} · `, money(totalOf(o)), ` ${t().plusDelivery}`);
+  row(t().f_order, orderLine);
+  row(t().f_created, num(when(o.created_at)));
+  const updatedDd = num(when(o.updated_at));
+  row(t().f_updated, updatedDd);
+
+  const savedEl = el("div", { class: "saved", role: "status" });
+  const statusSel = el("select", { id: "d-status" });
+  STATUS_KEYS.forEach(k => { const op = new Option(t().s[k], k); op.selected = k === o.status; statusSel.add(op); });
+  const tracking = el("input", { id: "d-tracking", value: o.tracking_number ?? "", placeholder: t().trackingPh, dir: "ltr" });
+  const notes = el("textarea", { id: "d-notes", placeholder: t().notesPh });
+  notes.value = o.notes ?? "";
+
+  const head = el("div", { class: "head" },
+    el("h2", {}, el("span", { text: o.customer_name }), " ", el("small", { class: "muted" }, num("#" + o.id))), statusBadge);
+
+  // after any successful save: refresh the status badge and the "last change" time
+  async function update(changes) {
+    const ok = await save(o, changes, savedEl);
+    if (ok) {
+      head.lastChild.replaceWith(badge(o.status));
+      updatedDd.textContent = when(o.updated_at);
+    }
+    return ok;
+  }
+  statusSel.addEventListener("change", async () => { if (!await update({ status: statusSel.value })) statusSel.value = o.status; });
+  tracking.addEventListener("change", () => update({ tracking_number: tracking.value.trim() || null }));
+  notes.addEventListener("change", () => update({ notes: notes.value.trim() || null }));
+
+  box.append(
+    el("div", { class: "panel" },
+      head,
+      info,
+      el("div", { class: "actions" },
+        el("a", { href: `tel:${o.phone}`, text: t().call }),
+        el("a", { href: `https://wa.me/${intl}`, target: "_blank", rel: "noopener", text: t().whatsapp }),
+        el("button", { type: "button", text: t().copyZR, onclick: async () => {
+          try { await navigator.clipboard.writeText(zrText); toast(t().copied); } catch { toast(t().copyFail); }
+        } }))),
+    el("div", { class: "panel" },
+      el("div", { class: "edit" },
+        el("div", {}, el("label", { for: "d-status", text: t().status }), statusSel),
+        el("div", {}, el("label", { for: "d-tracking", text: t().tracking }), tracking),
+        el("div", { class: "full" }, el("label", { for: "d-notes", text: t().notes }), notes)),
+      savedEl)
+  );
+}
+
+applyLang();
+start();
+</script>
+</body>
+</html>

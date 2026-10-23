@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b2a41">
+  <title>علب النظارات بالجملة | 50 دج للقطعة</title>
+  <meta name="description" content="علب نظارات صلبة بـ 7 ألوان. 50 دج للقطعة، الحد الأدنى للطلب 16 قطعة (800 دج). توصيل لكل الولايات والدفع عند الاستلام.">
+  <meta property="og:title" content="علب النظارات بالجملة | 50 دج للقطعة">
+  <meta property="og:description" content="7 ألوان، الحد الأدنى 16 قطعة بـ 800 دج، الدفع عند الاستلام.">
+  <meta property="og:image" content="images/colors.webp">
+  <meta property="og:type" content="product">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1b2a41;
+      --navy-2: #324a5f;
+      --accent: #ff6b6b;
+      --yellow: #ffd21f;
+      --red: #d92d20;
+      --green: #16803c;
+      --bg: #f6f4f1;
+      --ink: #1c1b22;
+      --muted: #646a78;
+      --line: #e3dfd8;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Cairo", Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      padding-bottom: 76px; /* room for sticky bar */
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    /* numbers must stay left-to-right inside Arabic text */
+    bdi.n, #price-min, #price-min-2, #sticky-price { direction: ltr; unicode-bidi: isolate; }
+
+    /* ---------- header ---------- */
+    header { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+    .brand { font-weight: 800; font-size: 20px; letter-spacing: 1px; }
+    header a.mini {
+      color: var(--navy); background: var(--yellow); text-decoration: none;
+      font-weight: 800; font-size: 14px; padding: 6px 16px; border-radius: 999px;
+    }
+
+    /* ---------- hero ---------- */
+    .hero { background: radial-gradient(circle at 80% 0%, var(--navy-2), var(--navy) 70%); color: #fff; padding: 26px 0 38px; }
+    .hero .wrap { display: grid; gap: 24px; }
+    @media (min-width: 820px) {
+      .hero .wrap { grid-template-columns: 1fr 1fr; align-items: center; gap: 44px; }
+      body { padding-bottom: 0; }
+      .sticky-cta { display: none !important; }
+    }
+    .gallery .main { border-radius: 18px; overflow: hidden; background: #000; aspect-ratio: 1 / 1; box-shadow: 0 12px 40px #0008; }
+    .gallery .main img { width: 100%; height: 100%; object-fit: cover; }
+    .thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 10px; }
+    .thumbs button {
+      padding: 0; margin: 0; border: 2px solid transparent; border-radius: 10px;
+      overflow: hidden; background: #000; cursor: pointer; aspect-ratio: 1 / 1;
+      opacity: .65; transition: opacity .15s;
+    }
+    .thumbs button[aria-current="true"] { border-color: var(--accent); opacity: 1; }
+    .thumbs img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero h1 { margin: 0 0 6px; font-size: clamp(26px, 5vw, 38px); line-height: 1.3; font-weight: 800; }
+    .hero p.lead { margin: 0 0 16px; color: #d3dbe6; }
+    .price { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 4px; }
+    .price strong { direction: ltr; unicode-bidi: isolate; font-size: 38px; color: var(--yellow); font-weight: 800; line-height: 1; }
+    .price span { color: #d3dbe6; font-size: 14px; }
+    .offer {
+      display: inline-block; margin: 6px 0 4px; padding: 6px 14px; border-radius: 10px;
+      background: #ff6b6b24; border: 1px dashed #ff6b6b99; color: #fff; font-weight: 600; font-size: 15px;
+    }
+    .offer b { color: var(--yellow); }
+    .delivery-note { color: #d3dbe6; font-size: 14px; margin: 6px 0 16px; }
+    .bullets { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 6px; }
+    .bullets li { padding-inline-start: 26px; position: relative; }
+    .bullets li::before { content: "✓"; position: absolute; inset-inline-start: 0; top: 0; color: var(--accent); font-weight: 800; }
+    .cta {
+      display: block; width: 100%; text-align: center; text-decoration: none; border: 0; cursor: pointer;
+      background: var(--yellow); color: var(--navy);
+      font: inherit; font-weight: 800; font-size: 19px;
+      padding: 14px 20px; border-radius: 12px;
+      box-shadow: 0 6px 0 #b8940a;
+      transition: transform .1s, box-shadow .1s;
+    }
+    .cta:active { transform: translateY(3px); box-shadow: 0 3px 0 #b8940a; }
+
+    /* ---------- sections ---------- */
+    section.block { padding: 36px 0 6px; }
+    h2.title { margin: 0 0 18px; font-size: 24px; font-weight: 800; text-align: center; }
+    h2.title::after { content: ""; display: block; width: 46px; height: 4px; border-radius: 4px; background: var(--accent); margin: 8px auto 0; }
+
+    .specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (min-width: 640px) { .specs { grid-template-columns: repeat(4, 1fr); } }
+    .spec { background: #fff; border-radius: 14px; padding: 16px 8px; text-align: center; border: 1px solid var(--line); }
+    .spec b { display: block; font-size: 24px; color: var(--navy); font-weight: 800; line-height: 1.3; }
+    .spec small { color: var(--muted); font-size: 13px; }
+
+    .colors-grid { display: grid; gap: 18px; align-items: center; }
+    @media (min-width: 720px) { .colors-grid { grid-template-columns: 1fr 1fr; } }
+    .colors-grid img { border-radius: 16px; width: 100%; max-width: 420px; margin-inline: auto; }
+    .swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .swatches li {
+      background: #fff; border: 1px solid var(--line); border-radius: 12px;
+      padding: 10px 14px; font-weight: 600; display: flex; align-items: center; gap: 10px;
+    }
+    .dot { width: 22px; height: 22px; border-radius: 50%; flex: none; border: 1px solid #0003; }
+
+    .trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .trust div {
+      background: var(--navy); color: #fff; border-radius: 14px;
+      padding: 16px 8px; text-align: center; font-weight: 600; font-size: 14px; line-height: 1.5;
+      border-top: 3px solid var(--accent); display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ---------- form ---------- */
+    #order { scroll-margin-top: 70px; }
+    .card {
+      background: #fff; border-radius: 18px; padding: 22px 18px;
+      box-shadow: 0 8px 30px #1c1b2214; max-width: 560px; margin: 0 auto; border: 1px solid var(--line);
+    }
+    .card h2 { margin: 0 0 2px; font-size: 22px; }
+    .card > p { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+    label { display: block; font-weight: 600; margin: 14px 0 5px; font-size: 15px; }
+    input, select, textarea {
+      display: block; width: 100%; padding: 12px; font: inherit;
+      border: 1.5px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink);
+    }
+    select:disabled { background: #f6f7fa; color: var(--muted); cursor: not-allowed; }
+    input:focus, select:focus, textarea:focus { outline: 3px solid #ff6b6b55; border-color: var(--accent); }
+    .invalid { border-color: var(--red) !important; }
+    .err { color: var(--red); font-size: 13px; margin: 3px 0 0; font-weight: 600; }
+    .hint { color: var(--muted); font-size: 12px; margin: 3px 0 0; }
+    .label { display: block; font-weight: 600; margin: 14px 0 5px; font-size: 15px; }
+    .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .choice {
+      margin: 0; display: flex; gap: 8px; align-items: flex-start; cursor: pointer;
+      border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; font-weight: 700;
+    }
+    .choice input { width: auto; margin: 6px 0 0; accent-color: var(--navy); }
+    .choice small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .choice:has(input:checked) { border-color: var(--accent); background: #ff6b6b14; }
+    .choices.invalid .choice { border-color: var(--red); }
+    #desk-note { margin-top: 10px; }
+
+    /* quantity steppers */
+    .stepper { display: inline-flex; align-items: stretch; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; direction: ltr; }
+    .stepper button {
+      width: 40px; border: 0; background: #f1eee9; font: inherit; font-size: 20px; font-weight: 800;
+      color: var(--navy); cursor: pointer;
+    }
+    .stepper button:active { background: #e3ded6; }
+    .stepper input { width: 64px; border: 0; border-radius: 0; text-align: center; padding: 8px 4px; -moz-appearance: textfield; }
+    .stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .qty-total { margin: 10px 0 0; font-weight: 700; }
+    .qty-total.ok { color: var(--green); }
+    .qty-total.low { color: var(--red); }
+
+    .hp { position: absolute; top: 0; inset-inline-start: 0; width: 0; height: 0; overflow: hidden; opacity: 0; pointer-events: none; }
+    .summary { margin-top: 18px; background: var(--bg); border-radius: 12px; padding: 12px 16px; display: grid; gap: 4px; font-size: 15px; }
+    .summary div { display: flex; justify-content: space-between; gap: 10px; }
+    .summary .total { font-weight: 800; font-size: 18px; border-top: 1px dashed var(--line); padding-top: 6px; margin-top: 4px; }
+    #submit { margin-top: 18px; }
+    #submit:disabled { opacity: .6; cursor: wait; }
+    #status { margin: 12px 0 0; text-align: center; font-weight: 600; }
+    .success { text-align: center; padding: 14px 4px; }
+    .success .ok { width: 64px; height: 64px; margin: 0 auto 6px; border-radius: 50%; background: var(--green); color: #fff; font-size: 36px; line-height: 64px; font-weight: 800; }
+    .success h2 { color: var(--green); }
+
+    /* ---------- faq ---------- */
+    details.faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }
+    details.faq summary { font-weight: 700; cursor: pointer; }
+    details.faq p { margin: 8px 0 0; color: var(--muted); }
+
+    /* ---------- footer ---------- */
+    footer { text-align: center; color: var(--muted); padding: 34px 16px 20px; font-size: 13px; }
+    details.small { margin: 14px auto 0; max-width: 420px; font-size: 12px; color: #8f94a3; }
+    details.small summary { cursor: pointer; list-style: none; text-decoration: underline dotted; }
+    details.small summary::-webkit-details-marker { display: none; }
+    details.small p { margin: 6px 0 0; line-height: 1.6; }
+
+    /* ---------- sticky bar (mobile) ---------- */
+    .sticky-cta {
+      position: fixed; bottom: 0; inset-inline: 0; z-index: 30;
+      background: #fff; border-top: 1px solid var(--line);
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+      display: flex; align-items: center; gap: 12px; transition: transform .2s;
+    }
+    .sticky-cta.hide { transform: translateY(110%); }
+    .sticky-cta .p { font-weight: 800; color: var(--navy); line-height: 1.2; white-space: nowrap; }
+    .sticky-cta .p small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+    .sticky-cta .cta { padding: 10px; font-size: 17px; box-shadow: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand" id="brand">LUNETTE BOX</div>
+    <a class="mini" href="#order" data-track="header">اطلب الآن</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <div class="gallery">
+      <div class="main"><img id="main-img" src="images/colors.webp" alt="علب النظارات بسبعة ألوان" width="1000" height="1000" fetchpriority="high"></div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+
+    <div>
+      <h1>علب نظارات صلبة<br>بسبعة ألوان، بسعر الجملة</h1>
+      <p class="lead">علبة صلبة بإغلاق محكم وبطانة ناعمة من الداخل، تحمي النظارة من الصدمات والخدوش. مناسبة للبيع بالتجزئة وللمحلات.</p>
+
+      <div class="price">
+        <strong id="price-unit"></strong><span>دج للقطعة</span>
+      </div>
+      <div class="offer">الحد الأدنى للطلب: <b id="min-qty"></b> قطعة = <b id="price-min"></b> دج فقط</div>
+      <p class="delivery-note">الدفع عند الاستلام<span id="delivery-note"></span></p>
+
+      <ul class="bullets">
+        <li>7 ألوان مشكّلة: أسود، بني، أزرق، أحمر وثلاث درجات من الوردي</li>
+        <li>علبة صلبة بإغلاق محكم</li>
+        <li>بطانة ناعمة تحمي العدسات من الخدوش</li>
+        <li>مناسبة للمحلات وبائعي النظارات وللهدايا</li>
+      </ul>
+      <a class="cta" href="#order" data-track="hero">اطلب الآن، الدفع عند الاستلام</a>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ===================== SPECS ===================== -->
+  <section class="block">
+    <h2 class="title">لماذا هذه العلبة؟</h2>
+    <div class="specs">
+      <div class="spec"><b>7</b><small>ألوان مشكّلة</small></div>
+      <div class="spec"><b id="spec-unit"></b><small>دج للقطعة</small></div>
+      <div class="spec"><b id="spec-min"></b><small>أقل كمية للطلب</small></div>
+      <div class="spec"><b>صلبة</b><small>تحمي النظارة</small></div>
+    </div>
+  </section>
+
+  <!-- ===================== COLORS ===================== -->
+  <section class="block">
+    <h2 class="title">الألوان المتوفرة (مشكّلة)</h2>
+    <div class="colors-grid">
+      <img src="images/colors-scatter.webp" alt="علب النظارات بجميع الألوان" width="810" height="1080" loading="lazy">
+      <ul class="swatches" id="swatches"></ul>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST ===================== -->
+  <section class="block">
+    <div class="trust">
+      <div>الدفع عند الاستلام</div>
+      <div>توصيل لكل الولايات</div>
+      <div>تأكيد الطلب بالهاتف</div>
+    </div>
+  </section>
+
+  <!-- ===================== ORDER FORM ===================== -->
+  <section class="block" id="order">
+    <div class="card" id="order-card">
+      <h2>اطلب الآن</h2>
+      <p>املأ المعلومات وسنتصل بك لتأكيد الطلب. الدفع عند الاستلام.</p>
+
+      <form id="order-form" novalidate>
+        <label for="name">الاسم واللقب</label>
+        <input id="name" name="name" autocomplete="name" required maxlength="100">
+        <p class="err" data-for="name"></p>
+
+        <label for="phone">رقم الهاتف</label>
+        <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel"
+               required maxlength="20" placeholder="0XXXXXXXXX" dir="ltr" style="text-align:right">
+        <p class="hint" id="phone-hint">10 أرقام، يبدأ بـ 05 أو 06 أو 07</p>
+        <p class="err" data-for="phone"></p>
+
+        <label for="wilaya">الولاية</label>
+        <select id="wilaya" name="wilaya" required autocomplete="address-level1">
+          <option value="">اختر الولاية</option>
+        </select>
+        <p class="err" data-for="wilaya"></p>
+
+        <label for="commune">البلدية</label>
+        <select id="commune" name="commune" required disabled>
+          <option value="">اختر الولاية أولاً</option>
+        </select>
+        <p class="err" data-for="commune"></p>
+
+        <span class="label" id="delivery-label">طريقة التوصيل</span>
+        <div class="choices" role="radiogroup" aria-labelledby="delivery-label">
+          <label class="choice"><input type="radio" name="delivery" value="home"><span>إلى المنزل<small>نوصل الطلب إلى باب بيتك</small></span></label>
+          <label class="choice"><input type="radio" name="delivery" value="desk"><span>إلى مكتب التوصيل<small>تستلمه من أقرب مكتب لبلديتك</small></span></label>
+        </div>
+        <p class="err" data-for="delivery"></p>
+
+        <div id="address-box" hidden>
+          <label for="address">العنوان بالتفصيل</label>
+          <textarea id="address" name="address" maxlength="300" rows="3"
+                    autocomplete="street-address" placeholder="الحي، الشارع، رقم المنزل، أقرب معلم"></textarea>
+          <p class="err" data-for="address"></p>
+        </div>
+        <p class="hint" id="desk-note" hidden>سنرسل طلبك إلى أقرب مكتب توصيل في بلديتك، ونؤكد معك المكتب عند الاتصال.</p>
+
+        <label for="qty-mix">الكمية (قطعة)</label>
+        <div class="stepper">
+          <button type="button" data-step="-1" aria-label="أنقص">−</button>
+          <input id="qty-mix" type="number" inputmode="numeric" min="1" max="5000">
+          <button type="button" data-step="1" aria-label="زِد">+</button>
+        </div>
+        <p class="hint">الألوان مشكّلة: نختار لك توزيع الألوان ولا يمكن اختيار لون محدد.</p>
+        <p class="qty-total" id="qty-total" role="status"></p>
+        <p class="err" data-for="quantity"></p>
+
+        <!-- honeypot: real users never see or fill this -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="summary" id="summary">
+          <div><span>عدد القطع</span><span id="sum-qty"></span></div>
+          <div><span>سعر القطعة</span><span id="sum-unit"></span></div>
+          <div><span>التوصيل</span><span id="sum-delivery"></span></div>
+          <div class="total"><span>المجموع</span><span id="sum-total"></span></div>
+        </div>
+
+        <button type="submit" id="submit" class="cta">تأكيد الطلب</button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="block">
+    <h2 class="title">أسئلة شائعة</h2>
+    <details class="faq">
+      <summary>كم أقل كمية يمكنني طلبها؟</summary>
+      <p>أقل كمية هي <bdi class="n" id="faq-min"></bdi> قطعة، أي <bdi class="n" id="faq-min-price"></bdi> دج. يمكنك طلب أكثر من ذلك بنفس سعر القطعة.</p>
+    </details>
+    <details class="faq">
+      <summary>هل يمكنني اختيار الألوان؟</summary>
+      <p>لا، الطلب يكون بألوان مشكّلة فقط: نحن نوزع لك الألوان المتوفرة (7 ألوان) ولا يمكن اختيار لون محدد.</p>
+    </details>
+    <details class="faq">
+      <summary>كيف أدفع؟</summary>
+      <p>الدفع عند الاستلام: تدفع للموزع بعد أن تستلم طلبك وتتأكد منه.</p>
+    </details>
+    <details class="faq">
+      <summary>متى يتم التوصيل؟</summary>
+      <p>بعد تأكيد الطلب بالهاتف نرسل لك الطلب. مدة التوصيل تختلف حسب الولاية وسنخبرك بها عند الاتصال.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div>© LUNETTE BOX — جميع الحقوق محفوظة</div>
+  <details class="small">
+    <summary>سياسة الخصوصية</summary>
+    <p>نجمع فقط المعلومات التي تكتبها في استمارة الطلب: الاسم، رقم الهاتف، الولاية، البلدية والعنوان، وذلك من أجل تأكيد طلبك وتوصيله.</p>
+    <p>نشارك هذه المعلومات فقط مع شركة التوصيل لإيصال طلبك، ولا نبيعها لأي طرف آخر.</p>
+  </details>
+</footer>
+
+<!-- sticky mobile bar -->
+<div class="sticky-cta" id="sticky">
+  <div class="p"><span id="sticky-price"></span> دج للقطعة<small>الحد الأدنى <bdi class="n" id="sticky-min"></bdi> قطعة</small></div>
+  <a class="cta" href="#order" data-track="sticky">اطلب الآن</a>
+</div>
+
+<script src="communes.js"></script>
+<script>
+/* ===================================================================
+   CONFIG — edit these values, nothing else needs touching.
+   =================================================================== */
+const CONFIG = {
+  UNIT_PRICE: 50,       // DA per piece
+  MIN_QTY: 16,          // smallest order allowed (16 x 50 = 800 DA)
+  MAX_QTY: 5000,
+  DELIVERY_FEE: null,   // delivery cost in DA. 0 = free delivery. null = "set at confirmation"
+  SUPABASE_URL: "https://zqlaymmgxgxagooqacab.supabase.co",
+  SUPABASE_PUBLISHABLE_KEY: "sb_publishable_PI1JiJOmCsSqNSSVtv1LWw_JE2sHUGK",
+
+  META_PIXEL_ID: "",    // Empty = disabled
+  MIN_FILL_SECONDS: 4,  // forms submitted faster than this are treated as bots
+  COOLDOWN_SECONDS: 60  // min delay between two orders from the same browser
+};
+
+const COLORS = [
+  { id: "black",  name: "أسود",         hex: "#111111" },
+  { id: "brown",  name: "بني",          hex: "#6b3a1e" },
+  { id: "blue",   name: "أزرق",         hex: "#1f3fd1" },
+  { id: "red",    name: "أحمر",         hex: "#e0201b" },
+  { id: "fuchsia",name: "وردي غامق",    hex: "#c4164f" },
+  { id: "pink",   name: "وردي",         hex: "#f0728b" },
+  { id: "blush",  name: "وردي فاتح",    hex: "#e6b7b3" }
+];
+
+const WILAYAS = [
+  "أدرار","الشلف","الأغواط","أم البواقي","باتنة","بجاية","بسكرة","بشار","البليدة","البويرة",
+  "تمنراست","تبسة","تلمسان","تيارت","تيزي وزو","الجزائر","الجلفة","جيجل","سطيف","سعيدة",
+  "سكيكدة","سيدي بلعباس","عنابة","قالمة","قسنطينة","المدية","مستغانم","المسيلة","معسكر","ورقلة",
+  "وهران","البيض","إليزي","برج بوعريريج","بومرداس","الطارف","تندوف","تيسمسيلت","الوادي","خنشلة",
+  "سوق أهراس","تيبازة","ميلة","عين الدفلى","النعامة","عين تموشنت","غرداية","غليزان","تيميمون","برج باجي مختار",
+  "أولاد جلال","بني عباس","عين صالح","عين قزام","تقرت","جانت","المغير","المنيعة"
+];
+const IMAGES = [
+  { file: "colors",         alt: "الألوان السبعة",       pos: "50% 60%" },
+  { file: "colors-scatter", alt: "العلب بجميع الألوان",   pos: "50% 55%" },
+  { file: "open-1",         alt: "علبة مفتوحة مع نظارة",  pos: "50% 50%" },
+  { file: "open-2",         alt: "العلبة من الداخل",      pos: "50% 50%" },
+  { file: "bags",           alt: "العلب في أكياس الجملة", pos: "50% 50%" }
+];
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+// non-breaking space keeps "1 000" in the right order inside the RTL page
+const fmt = n => n.toLocaleString("fr-DZ").replace(/[   ]/g, " ");
+const pageLoadedAt = Date.now();
+const MIN_TOTAL = CONFIG.UNIT_PRICE * CONFIG.MIN_QTY;
+
+/* ---------- tracking pixel (only if the ID is set) ---------- */
+if (CONFIG.META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq("init", CONFIG.META_PIXEL_ID);
+  fbq("track", "PageView");
+}
+function track(metaEvent, data) {
+  try { if (window.fbq) fbq("track", metaEvent, data || {}); } catch (_) {}
+}
+track("ViewContent", { content_name: "Lunette Box", value: MIN_TOTAL, currency: "DZD" });
+document.querySelectorAll("[data-track]").forEach(a =>
+  a.addEventListener("click", () => track("InitiateCheckout")));
+
+/* ---------- hidden admin entrance: tap the brand 5 times within 3 seconds ---------- */
+(() => {
+  let taps = [];
+  $("#brand").addEventListener("click", () => {
+    const now = Date.now();
+    taps = taps.filter(t => now - t < 3000).concat(now);
+    if (taps.length >= 5) location.href = "admin.html";
+  });
+})();
+
+/* ---------- static numbers ---------- */
+$("#price-unit").textContent = fmt(CONFIG.UNIT_PRICE);
+$("#sticky-price").textContent = fmt(CONFIG.UNIT_PRICE);
+$("#sticky-min").textContent = CONFIG.MIN_QTY;
+$("#min-qty").textContent = CONFIG.MIN_QTY;
+$("#price-min").textContent = fmt(MIN_TOTAL);
+$("#spec-unit").textContent = fmt(CONFIG.UNIT_PRICE);
+$("#spec-min").textContent = CONFIG.MIN_QTY;
+$("#faq-min").textContent = CONFIG.MIN_QTY;
+$("#faq-min-price").textContent = fmt(MIN_TOTAL);
+if (CONFIG.DELIVERY_FEE !== null) {
+  $("#delivery-note").textContent = CONFIG.DELIVERY_FEE === 0 ? " · توصيل مجاني" : ` · التوصيل ${fmt(CONFIG.DELIVERY_FEE)} دج`;
+}
+
+/* ---------- gallery ---------- */
+const mainImg = $("#main-img");
+const thumbs = $("#thumbs");
+IMAGES.forEach((im, i) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.setAttribute("aria-label", im.alt);
+  if (i === 0) b.setAttribute("aria-current", "true");
+  const img = document.createElement("img");
+  img.src = `images/${im.file}.webp`; img.alt = ""; img.loading = "lazy";
+  img.style.objectPosition = im.pos;
+  b.appendChild(img);
+  b.addEventListener("click", () => {
+    mainImg.src = `images/${im.file}.webp`; mainImg.alt = im.alt; mainImg.style.objectPosition = im.pos;
+    thumbs.querySelectorAll("button").forEach(x => x.removeAttribute("aria-current"));
+    b.setAttribute("aria-current", "true");
+  });
+  thumbs.appendChild(b);
+});
+mainImg.style.objectPosition = IMAGES[0].pos;
+
+/* ---------- colour list ---------- */
+const swatches = $("#swatches");
+COLORS.forEach(c => {
+  const li = document.createElement("li");
+  const dot = document.createElement("span"); dot.className = "dot"; dot.style.background = c.hex;
+  li.append(dot, c.name);
+  swatches.appendChild(li);
+});
+
+/* ---------- quantity ---------- */
+const form = $("#order-form");
+const qtyMix = $("#qty-mix");
+const toInt = v => Math.max(0, Math.floor(Number(String(v).replace(/\D/g, "")) || 0));
+
+// the stepper uses the markup that already exists in the page
+form.querySelectorAll(".stepper button").forEach(b =>
+  b.addEventListener("click", () => {
+    const next = toInt(qtyMix.value) + Number(b.dataset.step);
+    qtyMix.value = Math.min(CONFIG.MAX_QTY, Math.max(1, next));
+    updateAll();
+  }));
+qtyMix.value = CONFIG.MIN_QTY;
+qtyMix.addEventListener("input", updateAll);
+
+const currentItems = () => ({ total: toInt(qtyMix.value) });
+
+// only the number is forced left-to-right, the Arabic words around it stay right-to-left
+const money = n => `<bdi class="n">${fmt(n)}</bdi> دج`;
+function updateAll() {
+  const { total } = currentItems();
+  const ok = total >= CONFIG.MIN_QTY && total <= CONFIG.MAX_QTY;
+  const t = $("#qty-total");
+  t.className = "qty-total " + (ok ? "ok" : "low");
+  t.textContent = total < CONFIG.MIN_QTY
+    ? `المجموع: ${total} قطعة. ينقصك ${CONFIG.MIN_QTY - total} قطعة للوصول إلى الحد الأدنى (${CONFIG.MIN_QTY}).`
+    : `المجموع: ${total} قطعة ✓`;
+  if (ok) setError("quantity", "");
+
+  $("#sum-qty").innerHTML = `<bdi class="n">${total}</bdi> قطعة`;
+  $("#sum-unit").innerHTML = money(CONFIG.UNIT_PRICE);
+  const items = total * CONFIG.UNIT_PRICE;
+  if (CONFIG.DELIVERY_FEE === null) {
+    $("#sum-delivery").textContent = "يُحدَّد عند التأكيد";
+    $("#sum-total").innerHTML = `${money(items)} + التوصيل`;
+  } else {
+    $("#sum-delivery").innerHTML = CONFIG.DELIVERY_FEE === 0 ? "مجاني" : money(CONFIG.DELIVERY_FEE);
+    $("#sum-total").innerHTML = money(items + CONFIG.DELIVERY_FEE);
+  }
+}
+
+/* ---------- wilaya → commune (reactive) ---------- */
+const wilayaSel = $("#wilaya");
+const communeSel = $("#commune");
+const COMMUNES = window.COMMUNES || null;
+WILAYAS.forEach((w, i) => {
+  const o = document.createElement("option");
+  o.value = `${String(i + 1).padStart(2, "0")} - ${w}`;
+  o.textContent = o.value;
+  wilayaSel.appendChild(o);
+});
+wilayaSel.addEventListener("change", () => {
+  const code = wilayaSel.value.slice(0, 2);
+  const list = code && COMMUNES && COMMUNES[code];
+  communeSel.textContent = "";
+  setError("commune", "");
+  if (!code) {
+    communeSel.disabled = true;
+    communeSel.add(new Option("اختر الولاية أولاً", ""));
+  } else if (!list || !list.length) {
+    // the list only comes from communes.js; never let the customer type it
+    communeSel.disabled = true;
+    communeSel.add(new Option("تعذر تحميل البلديات، أعد تحميل الصفحة", ""));
+  } else {
+    communeSel.disabled = false;
+    communeSel.add(new Option("اختر البلدية", ""));
+    [...list].sort((a, b) => a.localeCompare(b, "ar")).forEach(c => communeSel.add(new Option(c, c)));
+  }
+});
+
+/* ---------- delivery type → address ---------- */
+const addressBox = $("#address-box");
+const deskNote = $("#desk-note");
+const deliveryValue = () => (form.querySelector('input[name="delivery"]:checked') || {}).value || "";
+form.querySelectorAll('input[name="delivery"]').forEach(r => r.addEventListener("change", () => {
+  const home = deliveryValue() === "home";
+  addressBox.hidden = !home;
+  deskNote.hidden = home;
+  setError("delivery", "");
+  if (home) form.elements["address"].focus();
+}));
+
+/* ---------- hide sticky bar while the form is on screen ---------- */
+const sticky = $("#sticky");
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver(es => sticky.classList.toggle("hide", es[0].isIntersecting))
+    .observe($("#order-card"));
+}
+
+/* ---------- phone ---------- */
+const phoneInput = $("#phone");
+function cleanPhone(raw) {
+  let d = raw
+    .replace(/[٠-٩]/g, c => c.charCodeAt(0) - 0x0660)   // Arabic-Indic digits
+    .replace(/[۰-۹]/g, c => c.charCodeAt(0) - 0x06F0)   // Persian digits
+    .replace(/\D/g, "");
+  // pasted international format: +213 / 00213 5XXXXXXXX
+  if (/^00213[567]\d{8}$/.test(d)) d = "0" + d.slice(5);
+  else if (/^213[567]\d{8}$/.test(d)) d = "0" + d.slice(3);
+  return d.slice(0, 10);   // never more than 10 digits
+}
+function phoneError(raw, live = false) {
+  const d = cleanPhone(raw);
+  if (!d) return "أدخل رقم الهاتف";
+  const badStart = d.length >= 2 ? !/^0[567]/.test(d) : d !== "0";
+  const short = !live && d.length < 10;   // while typing, only the prefix is judged
+  const start = d.slice(0, 2);
+  if (badStart && short) return `الرقم خاطئ: يبدأ بـ ${start} والصحيح أن يبدأ بـ 05 أو 06 أو 07، وهو قصير (${d.length} أرقام فقط من 10).`;
+  if (badStart) return `الرقم خاطئ: يبدأ بـ ${start}، ورقم الهاتف يجب أن يبدأ بـ 05 أو 06 أو 07.`;
+  if (short) return `الرقم قصير وخاطئ: أدخلت ${d.length} أرقام فقط، ورقم الهاتف يتكون من 10 أرقام.`;
+  return "";
+}
+phoneInput.addEventListener("input", () => {
+  const cleaned = cleanPhone(phoneInput.value);
+  if (phoneInput.value !== cleaned) phoneInput.value = cleaned;   // digits only, max 10
+  if (cleaned.length >= 2 && !/^0[567]/.test(cleaned)) setError("phone", phoneError(cleaned, true));
+  else setError("phone", "");   // "too short" waits for blur / submit
+});
+
+/* ---------- validation ---------- */
+const rules = {
+  name:    () => { const v = form.elements["name"].value.trim(); return v.length >= 3 && /\p{L}/u.test(v) ? "" : "أدخل الاسم الكامل"; },
+  phone:   () => phoneError(phoneInput.value),
+  wilaya:  () => wilayaSel.value ? "" : "اختر الولاية",
+  commune: () => !wilayaSel.value ? "اختر الولاية أولاً" : (communeSel.value ? "" : "اختر البلدية"),
+  delivery: () => deliveryValue() ? "" : "اختر طريقة التوصيل: إلى المنزل أو إلى مكتب التوصيل",
+  // measured exactly like the server does (spaces and line breaks collapsed)
+  address: () => deliveryValue() !== "home" || form.elements["address"].value.replace(/\s+/g, " ").trim().length >= 8
+                 ? "" : "أدخل العنوان بالتفصيل (الحي، الشارع...)",
+  quantity: () => {
+    const { total } = currentItems();
+    if (total < CONFIG.MIN_QTY) return `أقل كمية للطلب هي ${CONFIG.MIN_QTY} قطعة`;
+    if (total > CONFIG.MAX_QTY) return `أقصى كمية للطلب هي ${CONFIG.MAX_QTY} قطعة`;
+    return "";
+  }
+};
+const fieldEl = f => f === "delivery" ? $(".choices") : f === "quantity" ? $("#qty-total") : form.elements[f];
+function setError(field, msg) {
+  fieldEl(field).classList.toggle("invalid", !!msg);
+  $(`.err[data-for="${field}"]`).textContent = msg;
+  if (field === "phone") $("#phone-hint").hidden = !!msg;
+}
+function validate() {
+  let first = null;
+  for (const f of Object.keys(rules)) {
+    const msg = rules[f]();
+    setError(f, msg);
+    if (msg && !first) first = f === "delivery" ? form.querySelector('input[name="delivery"]')
+                             : f === "quantity" ? qtyMix
+                             : fieldEl(f);
+  }
+  if (first) first.focus();
+  return !first;
+}
+["name", "phone", "address"].forEach(f =>
+  form.elements[f].addEventListener("blur", () => { if (form.elements[f].value) setError(f, rules[f]()); }));
+["name", "address"].forEach(f =>
+  form.elements[f].addEventListener("input", () => form.elements[f].classList.remove("invalid")));
+wilayaSel.addEventListener("change", () => setError("wilaya", rules.wilaya()));
+communeSel.addEventListener("change", () => setError("commune", rules.commune()));
+updateAll();
+
+/* ---------- submit ---------- */
+const statusEl = $("#status");
+const submitBtn = $("#submit");
+const LAST_KEY = "lunette_last_order";
+
+function showSuccess(orderId) {
+  const card = $("#order-card");
+  card.textContent = "";
+  const box = document.createElement("div");
+  box.className = "success";
+  const ok = document.createElement("div"); ok.className = "ok"; ok.textContent = "✓";
+  const h = document.createElement("h2"); h.textContent = "تم تسجيل طلبك بنجاح!";
+  const p1 = document.createElement("p"); p1.textContent = `رقم الطلب: ${orderId}`;
+  const p2 = document.createElement("p"); p2.textContent = "سيتصل بك فريقنا قريبًا لتأكيد الطلب. المرجو إبقاء هاتفك قريبًا منك.";
+  box.append(ok, h, p1, p2);
+  card.appendChild(box);
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  if (submitBtn.disabled) return;
+
+  // bot checks: honeypot filled, or form completed impossibly fast
+  const botLike = form.elements["website"].value !== "" ||
+                  (Date.now() - pageLoadedAt) / 1000 < CONFIG.MIN_FILL_SECONDS;
+
+  if (!validate()) return;
+
+  // cooldown against accidental double orders / spam from one browser
+  try {
+    const last = Number(localStorage.getItem(LAST_KEY) || 0);
+    const wait = CONFIG.COOLDOWN_SECONDS - Math.floor((Date.now() - last) / 1000);
+    if (wait > 0) {
+      statusEl.style.color = "#b42318";
+      statusEl.textContent = `لقد أرسلت طلبًا للتو. انتظر ${wait} ثانية قبل إرسال طلب آخر.`;
+      return;
+    }
+  } catch (_) {}
+
+  if (botLike) {
+    // pretend success, send nothing
+    showSuccess("—");
+    return;
+  }
+
+  const original = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "جاري إرسال الطلب...";
+  statusEl.textContent = "";
+
+  const items = currentItems();
+  const payload = {
+    customer_name: form.elements["name"].value.trim(),
+    phone: cleanPhone(phoneInput.value),
+    wilaya: wilayaSel.value,
+    commune: communeSel.value,
+    delivery_type: deliveryValue(),
+    address: deliveryValue() === "home" ? form.elements["address"].value.trim() : "",
+    quantity: items.total,
+    website: form.elements["website"].value   // bot trap, always empty for real customers
+  };
+
+  try {
+    const response = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/create-order`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "apikey": CONFIG.SUPABASE_PUBLISHABLE_KEY },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (response.status === 429 && result.error !== "Duplicate order") {
+      // server spam brake: many orders in a few minutes
+      statusEl.style.color = "#b42318";
+      statusEl.textContent = "ضغط كبير على الطلبات حاليًا. حاول مرة أخرى بعد بضع دقائق.";
+      submitBtn.disabled = false;
+      submitBtn.textContent = original;
+      return;
+    }
+    if (response.status === 429) {
+      // this phone number already ordered a few minutes ago: don't create a second order
+      statusEl.style.color = "#16803c";
+      statusEl.textContent = "طلبك مسجل عندنا من قبل بهذا الرقم، سنتصل بك قريبًا لتأكيده. لا داعي لإعادة الطلب.";
+      submitBtn.disabled = false;
+      submitBtn.textContent = original;
+      return;
+    }
+    if (!response.ok || !result.success) {
+      const err = new Error(result.error || `HTTP ${response.status}`);
+      err.server = true;   // we reached the server, so it's not an internet problem
+      err.field = result.field;
+      throw err;
+    }
+
+    try { localStorage.setItem(LAST_KEY, String(Date.now())); } catch (_) {}
+    track("Purchase", { value: items.total * CONFIG.UNIT_PRICE, currency: "DZD", quantity: items.total });
+    showSuccess(result.order_id);
+  } catch (error) {
+    console.error("Order submission failed:", error);
+    statusEl.style.color = "#b42318";
+    if (error.field && rules[error.field]) {
+      setError(error.field, "هذه المعلومة غير صحيحة، تحقق منها");
+      fieldEl(error.field).scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    statusEl.textContent = error.server
+      ? `تعذر تسجيل الطلب. تحقق من معلوماتك وحاول مرة أخرى. [${error.message}]`
+      : "ما قدرناش نسجلو الطلب. تحقق من الإنترنت وحاول مرة أخرى.";
+    submitBtn.disabled = false;
+    submitBtn.textContent = original;
+  }
+});
+</script>
+</body>
+</html>
