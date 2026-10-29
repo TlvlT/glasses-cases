@@ -129,7 +129,7 @@
   <p data-t="loginSub"></p>
   <form id="login-form">
     <label for="email" data-t="email"></label>
-    <input id="email" type="email" autocomplete="username" required dir="ltr">
+    <input id="email" type="text" autocomplete="username" required dir="ltr">
     <label for="password" data-t="password"></label>
     <input id="password" type="password" autocomplete="current-password" required dir="ltr">
     <button class="btn" type="submit" id="login-btn" data-t="enter"></button>
@@ -190,7 +190,7 @@ const STATUS_KEYS = ["new", "no_answer", "confirmed", "shipped", "delivered", "r
 const T = {
   ar: {
     dir: "rtl", admin: "الإدارة", login: "تسجيل الدخول", loginSub: "هذه الصفحة خاصة بالإدارة.",
-    email: "البريد الإلكتروني", password: "كلمة السر", enter: "دخول",
+    email: "اسم المستخدم", password: "كلمة السر", enter: "دخول",
     badLogin: "البريد أو كلمة السر غير صحيحة.", noAccess: "هذا الحساب ليس له صلاحية الدخول.",
     refresh: "تحديث", logout: "خروج", updated: "تم التحديث", loadFail: "تعذر تحميل الطلبات: ",
     today: "اليوم", d7: "آخر 7 أيام", d30: "آخر 30 يوم", all: "الكل", allTab: "الكل",
@@ -213,7 +213,7 @@ const T = {
   },
   fr: {
     dir: "ltr", admin: "Admin", login: "Connexion", loginSub: "Page réservée à l'administration.",
-    email: "E-mail", password: "Mot de passe", enter: "Se connecter",
+    email: "Nom d'utilisateur", password: "Mot de passe", enter: "Se connecter",
     badLogin: "E-mail ou mot de passe incorrect.", noAccess: "Ce compte n'a pas accès.",
     refresh: "Actualiser", logout: "Déconnexion", updated: "Actualisé", loadFail: "Impossible de charger les commandes : ",
     today: "Aujourd'hui", d7: "7 derniers jours", d30: "30 derniers jours", all: "Tout", allTab: "Toutes",
@@ -236,7 +236,7 @@ const T = {
   },
   en: {
     dir: "ltr", admin: "Admin", login: "Sign in", loginSub: "This page is for administration only.",
-    email: "Email", password: "Password", enter: "Sign in",
+    email: "Username", password: "Password", enter: "Sign in",
     badLogin: "Wrong email or password.", noAccess: "This account has no access.",
     refresh: "Refresh", logout: "Log out", updated: "Updated", loadFail: "Could not load orders: ",
     today: "Today", d7: "Last 7 days", d30: "Last 30 days", all: "All time", allTab: "All",
@@ -351,7 +351,9 @@ $("#login-form").addEventListener("submit", async e => {
   e.preventDefault();
   const btn = $("#login-btn");
   btn.disabled = true; $("#login-msg").textContent = "";
-  const { error } = await db.auth.signInWithPassword({ email: $("#email").value.trim(), password: $("#password").value });
+  const idv = $("#email").value.trim();
+  const email = idv.includes("@") ? idv : idv.toLowerCase() + "@lunettebox.dz";
+  const { error } = await db.auth.signInWithPassword({ email, password: $("#password").value });
   btn.disabled = false;
   if (error) { $("#login-msg").textContent = t().badLogin; return; }
   $("#password").value = "";
